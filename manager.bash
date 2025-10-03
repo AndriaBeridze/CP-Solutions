@@ -85,7 +85,6 @@ elif [[ "$ACTION" == "run" ]]; then
     clear
 
 # ------------------------- PUSH ACTION -------------------------
-# ------------------------- PUSH ACTION -------------------------
 elif [[ "$ACTION" == "push" ]]; then
     # Check source file
     if [[ ! -f "$COMPILE_PATH/$SOURCE_FILE" ]]; then
