@@ -19,7 +19,7 @@ INPUT_FILE="testcase.txt"
 
 # Validate action
 if [[ -z "$ACTION" || -z "$FILENAME" ]]; then
-    echo "Usage: $0 <create|run> <filename>"
+    echo "Usage: $0 <create|run|push> <filename>"
     exit 1
 fi
 
@@ -84,8 +84,40 @@ elif [[ "$ACTION" == "run" ]]; then
     read -n 1 -s -r -p "Press any key to continue"
     clear
 
+# ------------------------- PUSH ACTION -------------------------
+# ------------------------- PUSH ACTION -------------------------
+elif [[ "$ACTION" == "push" ]]; then
+    # Check source file
+    if [[ ! -f "$COMPILE_PATH/$SOURCE_FILE" ]]; then
+        echo "Error: Source file '$COMPILE_PATH/$SOURCE_FILE' not found."
+        exit 1
+    fi
+    
+    REL_PATH=$(realpath --relative-to="Solutions/" "$COMPILE_PATH/$SOURCE_FILE")
+    echo "Preparing to push '$REL_PATH' to git repository."
+
+    # Ask for validation
+    echo "You are about to add and push the file: '$REL_PATH'"
+    read -p "Is this path correct? [y/N]: " CONFIRM
+
+    if [[ "$CONFIRM" != "y" && "$CONFIRM" != "Y" ]]; then
+        echo "Aborting push."
+        exit 0
+    fi
+
+    # Stage file
+    git add "$COMPILE_PATH/$SOURCE_FILE"
+
+    # Commit with message
+    git commit -m "Solve $REL_PATH"
+
+    # Push
+    git push
+    echo "File '$REL_PATH' has been committed and pushed successfully."
+
+
 # ------------------------- INVALID ACTION -------------------------
 else
-    echo "Invalid action: '$ACTION'. Use 'create' or 'run'."
+    echo "Invalid action: '$ACTION'. Use 'create', 'run', or 'push'."
     exit 1
 fi
