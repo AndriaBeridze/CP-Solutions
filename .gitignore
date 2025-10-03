@@ -1,8 +1,1 @@
-*run.bash
-!Templates/run.bash
-
-*setup.bash
-!Templates/setup.bash
-
-*template.txt
-!Templates/template.txt
+testcase.txt
