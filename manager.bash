@@ -93,6 +93,7 @@ elif [[ "$ACTION" == "push" ]]; then
     fi
     
     REL_PATH=$(realpath --relative-to="Solutions/" "$COMPILE_PATH/$SOURCE_FILE")
+    REL_PATH="${REL_PATH%.cpp}"
     echo "Preparing to push '$REL_PATH' to git repository."
 
     # Ask for validation
