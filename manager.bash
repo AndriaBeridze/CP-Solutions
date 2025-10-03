@@ -115,6 +115,8 @@ elif [[ "$ACTION" == "push" ]]; then
     git push
     echo "File '$REL_PATH' has been committed and pushed successfully."
 
+    read -n 1 -s -r -p "Press any key to continue"
+    clear
 
 # ------------------------- INVALID ACTION -------------------------
 else
