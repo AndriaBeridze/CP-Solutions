@@ -11,7 +11,7 @@
 # ------------------------------------------------------------------------
 
 # Default project path (current directory)
-COMPILE_PATH="${CP:-.}"
+COMPILE_PATH="solutions/${CP:-.}"
 ACTION="$1"     # create or run
 FILENAME="$2"   # base name of C++ file
 TEMPLATE_FILE="template.txt"
