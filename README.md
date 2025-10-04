@@ -5,11 +5,11 @@ A repository of my **competitive programming solutions**, organized by competiti
 ## Repository Structure
 
 ```
-/Solutions
-    /Codeforces
-    /ICPC
-    /USACO
-    /LeetCode
+/solutions
+    /codeforces
+    /icpc
+    /usaco
+    /leetCode
 manager.bash
 template.txt
 testcase.txt
